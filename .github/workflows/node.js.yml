@@ -35,7 +35,7 @@ jobs:
     - run: npm test
   
     - name : docker container stop
-      run : docker container stop test
+      run : docker container stop dockerTest
   
     - name : docker container kill
       run : docker rm `docker ps -a -q`
@@ -44,7 +44,7 @@ jobs:
       run : docker build -t test .
       
     - name : docker run
-      run : docker run -dp 3000:3000 test
+      run : docker run -dp 3000:3000 test --name dockerTest
 
     - name : docker ps
       run : docker ps 
