@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x, 14.x]
+        node-version: [14.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -42,3 +42,6 @@ jobs:
       
     - name : docker run
       run : docker run -dp 3000:3000 test
+
+    - name : docker ps
+      run : docker ps 
