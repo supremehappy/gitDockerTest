@@ -35,4 +35,4 @@ jobs:
     - run: npm test
   
     - name : docker test
-      run : docker
+      run : docker images
