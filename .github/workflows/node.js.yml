@@ -19,7 +19,7 @@ jobs:
         node-version: [12.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
         docker-name: [dockerTest00, dockerTest01]
-        docker-port: [3000:3000, 3001:3001]
+        docker-port: [3000,3001]
 
     steps:
     - uses: actions/checkout@v2
@@ -46,7 +46,7 @@ jobs:
       run : docker build -t test .
       
     - name : docker run
-      run : docker run --name ${{ matrix.docker-name }} -dp ${{ matrix.docker-port }} test
+      run : docker run --name ${{ matrix.docker-name }} -dp ${{ matrix.docker-port }}:${{ matrix.docker-port }} test
 
     - name : docker ps
       run : docker ps 
